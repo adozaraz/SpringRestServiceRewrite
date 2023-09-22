@@ -10,18 +10,7 @@ public class LearningClassDTO {
 
     private Set<StudentDTO> attendingStudents;
 
-    public LearningClassDTO(String learningClassId, String title, String description, Set<StudentDTO> attendingStudents) {
-        this.learningClassId = learningClassId;
-        this.title = title;
-        this.description = description;
-        this.attendingStudents = attendingStudents;
-    }
-
-    public LearningClassDTO(String learningClassId, String title, String description) {
-        this.learningClassId = learningClassId;
-        this.title = title;
-        this.description = description;
-        this.attendingStudents = null;
+    public LearningClassDTO() {
     }
 
     public String getLearningClassId() {
@@ -43,6 +32,8 @@ public class LearningClassDTO {
     public String getDescription() {
         return description;
     }
+
+    public void setDescription(String description) { this.description = description; }
 
 
     public Set<StudentDTO> getAttendingStudents() {

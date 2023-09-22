@@ -10,18 +10,8 @@ public class StudentDTO {
 
     private Set<LearningClassDTO> learningClasses;
 
-    public StudentDTO(String studentId, String firstName, String lastName, Set<LearningClassDTO> learningClasses) {
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.learningClasses = learningClasses;
-    }
+    public StudentDTO() {
 
-    public StudentDTO(String studentId, String firstName, String lastName) {
-        this.studentId = studentId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.learningClasses = null;
     }
 
     public String getStudentId() {

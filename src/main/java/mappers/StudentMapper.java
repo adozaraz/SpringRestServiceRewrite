@@ -5,7 +5,7 @@ import entities.StudentDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring", uses = { StudentMapper.class })
 public interface StudentMapper {
     StudentMapper INSTANCE = Mappers.getMapper( StudentMapper.class );
 

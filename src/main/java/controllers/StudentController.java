@@ -9,7 +9,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/student")
-public class StudentClassController {
+public class StudentController {
     @Autowired
     private StudentService studentService;
 
