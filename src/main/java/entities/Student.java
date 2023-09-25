@@ -34,15 +34,15 @@ public class Student {
         this.firstName = firstName;
     }
 
-    public String getStudentId() {
-        return studentId.toString();
+    public UUID getStudentId() {
+        return studentId;
     }
 
-    public void setStudentID(UUID id) {
+    public void setStudentId(UUID id) {
         this.studentId = id;
     }
 
-    public void setStudentID(String id) {
+    public void setStudentId(String id) {
         this.studentId = UUID.fromString(id);
     }
 

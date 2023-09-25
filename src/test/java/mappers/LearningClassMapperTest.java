@@ -3,39 +3,30 @@ package mappers;
 import entities.LearningClass;
 import entities.LearningClassDTO;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:applicationContext.xml")
 class LearningClassMapperTest {
 
-    @Autowired
-    private LearningClassMapper learningClassMapper;
+    private LearningClassMapper learningClassMapper = LearningClassMapper.INSTANCE;
 
     @Test
     void learningClassToLearningClassDTO() {
         LearningClass expected = new LearningClass();
-        expected.setTitle("Test");
-        expected.setDescription("Description");
-
+        expected.setDescription("Test");
+        expected.setTitle("Title");
         LearningClassDTO actual = learningClassMapper.learningClassToLearningClassDTO(expected);
         assertEquals(expected.getTitle(), actual.getTitle());
-        assertEquals(expected.getDescription(), actual.getDescription());
+        assertEquals(expected.getDescription(), actual.getTitle());
     }
 
     @Test
     void learningClassDTOToLearningClass() {
         LearningClassDTO expected = new LearningClassDTO();
-        expected.setTitle("Test");
-        expected.setDescription("Description");
-
+        expected.setDescription("Test");
+        expected.setTitle("Title");
         LearningClass actual = learningClassMapper.learningClassDTOToLearningClass(expected);
         assertEquals(expected.getTitle(), actual.getTitle());
-        assertEquals(expected.getDescription(), actual.getDescription());
+        assertEquals(expected.getDescription(), actual.getTitle());
     }
 }
