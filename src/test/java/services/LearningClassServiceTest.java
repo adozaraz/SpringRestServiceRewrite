@@ -1,11 +1,19 @@
 package services;
 
+import config.SpringConfig;
 import entities.LearningClass;
 import entities.LearningClassDTO;
 import mappers.LearningClassMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 import repositories.LearningClassRepository;
 
 import java.util.Optional;
@@ -16,13 +24,18 @@ import static org.mockito.Mockito.*;
 
 class LearningClassServiceTest {
 
-    @InjectMocks
     private LearningClassService learningClassService;
 
-    @Mock
     private LearningClassRepository learningClassRepository;
 
     private final LearningClassMapper learningClassMapper = LearningClassMapper.INSTANCE;
+
+    @BeforeEach
+    void setUp() {
+        learningClassRepository = mock(LearningClassRepository.class);
+        learningClassService = new LearningClassService(learningClassRepository, learningClassMapper);
+    }
+
 
     @Test
     void create() {

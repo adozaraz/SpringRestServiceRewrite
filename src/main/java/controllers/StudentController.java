@@ -10,8 +10,11 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/student")
 public class StudentController {
-    @Autowired
     private StudentService studentService;
+
+    public StudentController(StudentService studentService) {
+        this.studentService = studentService;
+    }
 
     @PostMapping("/create")
     public StudentDTO createStudent(@RequestBody StudentDTO studentDTO) { return this.studentService.create(studentDTO); }

@@ -11,8 +11,11 @@ import java.util.UUID;
 @RequestMapping("/learningClass")
 public class LearningClassController {
 
-    @Autowired
     private LearningClassService learningClassService;
+
+    public LearningClassController(LearningClassService learningClassService) {
+        this.learningClassService = learningClassService;
+    }
 
     @PostMapping("/create")
     public LearningClassDTO createLearningClass(@RequestBody LearningClassDTO learningClassDTO) {

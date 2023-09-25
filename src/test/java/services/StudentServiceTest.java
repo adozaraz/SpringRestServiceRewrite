@@ -3,6 +3,7 @@ package services;
 import entities.Student;
 import entities.StudentDTO;
 import mappers.StudentMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -14,15 +15,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+
 class StudentServiceTest {
 
-    @InjectMocks
     private StudentService studentService;
 
     @Mock
     private StudentRepository studentRepository;
 
-    private StudentMapper studentMapper = StudentMapper.INSTANCE;
+    private final StudentMapper studentMapper = StudentMapper.INSTANCE;
+
+    @BeforeEach
+    void setUp() {
+        studentRepository = mock(StudentRepository.class);
+        studentService = new StudentService(studentRepository, studentMapper);
+    }
 
     @Test
     void create() {

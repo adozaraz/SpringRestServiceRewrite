@@ -12,11 +12,14 @@ import java.util.UUID;
 
 @Service
 public class StudentService {
-    @Autowired
     private StudentRepository studentRepository;
 
-    @Autowired
     private StudentMapper studentMapper;
+
+    public StudentService(StudentRepository studentRepository, StudentMapper studentMapper) {
+        this.studentRepository = studentRepository;
+        this.studentMapper = studentMapper;
+    }
 
     public StudentDTO create(StudentDTO studentDTO) {
         Student student = studentMapper.studentDTOToStudent(studentDTO);

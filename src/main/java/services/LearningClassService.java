@@ -12,11 +12,14 @@ import java.util.UUID;
 
 @Service
 public class LearningClassService {
-    @Autowired
     private LearningClassRepository learningClassRepository;
 
-    @Autowired
     private LearningClassMapper learningClassMapper;
+
+    public LearningClassService(LearningClassRepository learningClassRepository, LearningClassMapper learningClassMapper) {
+        this.learningClassRepository = learningClassRepository;
+        this.learningClassMapper = learningClassMapper;
+    }
 
     public LearningClassDTO create(LearningClassDTO learningClassDTO) {
         LearningClass learningClass = learningClassMapper.learningClassDTOToLearningClass(learningClassDTO);
