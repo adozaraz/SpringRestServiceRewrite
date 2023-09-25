@@ -17,7 +17,7 @@ class LearningClassMapperTest {
         expected.setTitle("Title");
         LearningClassDTO actual = learningClassMapper.learningClassToLearningClassDTO(expected);
         assertEquals(expected.getTitle(), actual.getTitle());
-        assertEquals(expected.getDescription(), actual.getTitle());
+        assertEquals(expected.getDescription(), actual.getDescription());
     }
 
     @Test
@@ -27,6 +27,6 @@ class LearningClassMapperTest {
         expected.setTitle("Title");
         LearningClass actual = learningClassMapper.learningClassDTOToLearningClass(expected);
         assertEquals(expected.getTitle(), actual.getTitle());
-        assertEquals(expected.getDescription(), actual.getTitle());
+        assertEquals(expected.getDescription(), actual.getDescription());
     }
 }
