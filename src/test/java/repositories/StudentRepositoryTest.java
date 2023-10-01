@@ -1,6 +1,7 @@
 package repositories;
 
 import config.SpringConfig;
+import config.SpringJpaConfig;
 import entities.Student;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,8 +22,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Testcontainers
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = SpringConfig.class)
+@ContextConfiguration(classes = SpringJpaConfig.class)
 class StudentRepositoryTest {
+
     @Autowired
     private StudentRepository studentRepository;
 
