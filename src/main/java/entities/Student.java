@@ -23,9 +23,6 @@ public class Student {
     )
     private Set<LearningClass> learningClasses = new HashSet<>();
 
-    public Student() {
-    }
-
     public String getFirstName() {
         return firstName;
     }

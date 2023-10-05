@@ -1,27 +1,31 @@
 package config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+@Component
+@PropertySource("classpath:application.properties")
 public class ApplicationProperties {
     @Value("${spring.datasource.driverClassName}")
-    private String driverClassName;
-
+    private String driverName;
     @Value("${spring.datasource.username}")
     private String username;
-
     @Value("${spring.datasource.password}")
     private String password;
-
     @Value("${spring.datasource.url}")
     private String url;
 
-
-    public String getDriverClassName() {
-        return driverClassName;
+    public String getDriverName() {
+        return driverName;
     }
 
-    public void setDriverClassName(String driverClassName) {
-        this.driverClassName = driverClassName;
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 
     public String getUsername() {

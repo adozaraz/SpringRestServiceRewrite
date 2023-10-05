@@ -12,14 +12,12 @@ public class LearningClass {
     @Id
     @GeneratedValue
     private UUID learningClassId;
+
     private String title;
     private String description;
 
     @ManyToMany(mappedBy = "learningClasses")
     private Set<Student> attendingStudents = new HashSet<>();
-
-    public LearningClass() {
-    }
 
     public UUID getLearningClassId() {
         return learningClassId;

@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class SpringContextHolder implements ApplicationContextAware {
-    private static ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class, SpringJpaConfig.class);
+    private static ApplicationContext context = new AnnotationConfigApplicationContext(PersistenceContext.class, SpringConfig.class);
 
     public static ApplicationContext getApplicationContext() {
         return context;
