@@ -1,0 +1,61 @@
+package org.springRetry.entities;
+
+import java.util.Objects;
+import java.util.Set;
+
+public class StudentDTO {
+    private String studentId;
+    private String firstName;
+    private String lastName;
+
+    private Set<LearningClassDTO> learningClasses;
+
+    public StudentDTO() {
+
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Set<LearningClassDTO> getLearningClasses() {
+        return learningClasses;
+    }
+
+    public void setLearningClasses(Set<LearningClassDTO> learningClasses) {
+        this.learningClasses = learningClasses;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDTO that = (StudentDTO) o;
+        return Objects.equals(studentId, that.studentId) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(learningClasses, that.learningClasses);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, firstName, lastName, learningClasses);
+    }
+}
