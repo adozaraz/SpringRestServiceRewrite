@@ -2,23 +2,23 @@ CREATE DATABASE students_database ENCODING 'UTF-8';
 
 ---Студенты
 CREATE TABLE IF NOT EXISTS students (
-                                        studentId VARCHAR PRIMARY KEY,
+                                        studentId SERIAL PRIMARY KEY,
                                         firstName VARCHAR NOT NULL,
                                         lastName VARCHAR NOT NULL
 );
 
 ---Списки классов
-CREATE TABLE IF NOT EXISTS learningClasses (
-                                               learningClassId VARCHAR PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS learning_classes (
+                                               learningClassId SERIAL PRIMARY KEY,
                                                title VARCHAR NOT NULL,
                                                description VARCHAR NOT NULL
 );
 
 ---Списки записей в классы
 CREATE TABLE IF NOT EXISTS enrollments (
-                                           enrollmentId VARCHAR PRIMARY KEY,
-                                           student VARCHAR NOT NULL,
-                                           learningClass VARCHAR NOT NULL,
+                                           enrollmentId SERIAL PRIMARY KEY,
+                                           student SERIAL NOT NULL,
+                                           learningClass SERIAL NOT NULL,
                                            FOREIGN KEY (student) REFERENCES students (studentId),
-    FOREIGN KEY (learningClass) REFERENCES learningClasses (learningClassId)
+    FOREIGN KEY (learningClass) REFERENCES learning_classes (learningClassId)
     );

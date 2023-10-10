@@ -35,7 +35,7 @@ class StudentControllerTest {
     @Test
     void readStudent() throws Exception {
         StudentDTO expected = new StudentDTO();
-        expected.setStudentId(UUID.randomUUID().toString());
+        expected.setStudentId(Long.valueOf(1l).toString());
         expected.setFirstName("Nikita");
         expected.setLastName("Boradulin");
         when(studentService.read(Long.parseLong(expected.getStudentId()))).thenReturn(expected);

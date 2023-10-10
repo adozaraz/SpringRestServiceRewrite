@@ -36,7 +36,7 @@ class LearningClassControllerTest {
     @Test
     void readLearningClass() throws Exception {
         LearningClassDTO expected = new LearningClassDTO();
-        expected.setLearningClassId(UUID.randomUUID().toString());
+        expected.setLearningClassId(Long.valueOf(1).toString());
         expected.setTitle("Test");
         expected.setDescription("Desc");
         when(learningClassService.read(Long.parseLong(expected.getLearningClassId()))).thenReturn(expected);

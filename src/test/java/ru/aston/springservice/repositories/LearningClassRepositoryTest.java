@@ -28,8 +28,7 @@ class LearningClassRepositoryTest {
 
     @Container
     public static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(DockerImageName.parse("postgres:9.6.12"))
-            .withUsername("test")
-            .withPassword("test");
+            .withInitScript("db.sql");
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {

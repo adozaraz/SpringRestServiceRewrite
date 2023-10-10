@@ -2,14 +2,13 @@ package ru.aston.springservice.entities;
 
 import jakarta.persistence.*;
 
-import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
 @Table(name = "students")
 public class Student {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long studentId;
     private String firstName;
     private String lastName;
@@ -60,14 +59,14 @@ public class Student {
 
     public void addLearningClass(LearningClass learningClass) {
         this.learningClasses.add(learningClass);
-        learningClass.getAttendingStudents().add(this);
+        learningClass.getStudents().add(this);
     }
 
     public void removeLearningClass(String learningClassId) {
         LearningClass learningClass = this.learningClasses.stream().filter(t -> Objects.equals(t.getLearningClassId(), learningClassId)).findFirst().orElse(null);
         if (learningClass != null) {
             this.learningClasses.remove(learningClass);
-            learningClass.getAttendingStudents().remove(this);
+            learningClass.getStudents().remove(this);
         }
     }
 
